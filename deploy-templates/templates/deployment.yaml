@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "gin-go.fullname" . }}
+  name: {{ include "custom-framework-service.fullname" . }}
   labels:
-    {{- include "gin-go.labels" . | nindent 4 }}
+    {{- include "custom-framework-service.labels" . | nindent 4 }}
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
 {{- end }}
   selector:
     matchLabels:
-      {{- include "gin-go.selectorLabels" . | nindent 6 }}
+      {{- include "custom-framework-service.selectorLabels" . | nindent 6 }}
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        {{- include "gin-go.selectorLabels" . | nindent 8 }}
+        {{- include "custom-framework-service.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "gin-go.serviceAccountName" . }}
+      serviceAccountName: {{ include "custom-framework-service.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
