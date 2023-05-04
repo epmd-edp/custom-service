@@ -1,16 +1,16 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "gin-go.fullname" . -}}
+{{- $fullName := include "custom-framework-service.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
-{{- $ingressApiIsStable := eq (include "gin-go.ingress.isStable" .) "true" -}}
-{{- $ingressSupportsIngressClassName := eq (include "gin-go.ingress.supportsIngressClassName" .) "true" -}}
-{{- $ingressSupportsPathType := eq (include "gin-go.ingress.supportsPathType" .) "true" -}}
+{{- $ingressApiIsStable := eq (include "custom-framework-service.ingress.isStable" .) "true" -}}
+{{- $ingressSupportsIngressClassName := eq (include "custom-framework-service.ingress.supportsIngressClassName" .) "true" -}}
+{{- $ingressSupportsPathType := eq (include "custom-framework-service.ingress.supportsPathType" .) "true" -}}
 {{- $ingressPathType := .Values.ingress.pathType -}}
 kind: Ingress
-apiVersion: {{ include "gin-go.ingress.apiVersion" . }}
+apiVersion: {{ include "custom-framework-service.ingress.apiVersion" . }}
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "gin-go.labels" . | nindent 4 }}
+    {{- include "custom-framework-service.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
