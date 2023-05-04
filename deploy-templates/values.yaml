@@ -1,11 +1,11 @@
-# Default values for gin-go.
+# Default values for custom-framework-service.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: gin-go
+  repository: custom-framework-service
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
