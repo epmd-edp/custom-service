@@ -28,8 +28,7 @@ BUNDLE_METADATA_OPTS ?= $(BUNDLE_CHANNELS) $(BUNDLE_DEFAULT_CHANNEL)
 # This variable is used to construct full image tags for bundle and catalog images.
 #
 # For example, running 'make bundle-build bundle-push catalog-build catalog-push' will build and push both
-# edp.epam.com/go-go-operator-
--bundle:$VERSION and edp.epam.com/go-go-operator-sdk-catalog:$VERSION.
+# edp.epam.com/go-go-operator-sdk-bundle:$VERSION and edp.epam.com/go-go-operator-sdk-catalog:$VERSION.
 IMAGE_TAG_BASE ?= edp.epam.com/go-go-operator-sdk
 
 # BUNDLE_IMG defines the image:tag used for the bundle.
