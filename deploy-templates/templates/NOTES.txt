@@ -1,0 +1,1 @@
+1. Application gin-go has been successfully deployed!!
